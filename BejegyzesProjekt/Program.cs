@@ -13,6 +13,10 @@ namespace BejegyzesProjekt
         {
             //2a
             List<Bejegyzes> lista = new List<Bejegyzes>();
+
+            lista.Add(new Bejegyzes("Lakatos Nintendo", "A vasat lopni nem szégyen, de rezet se..."));
+            lista.Add(new Bejegyzes("Horváth Melinda", "Az egyetemi élet volt a legjobb az életemben!"));
+
             //2b
             Console.Write("Kérem adjon megy egy darabszámot: ");
             int db = Convert.ToInt32(Console.ReadLine());
@@ -94,10 +98,10 @@ namespace BejegyzesProjekt
                     hanyOlyanBejegyzesAmi15LajknalKevesebb++;
                 }
             }
-            Console.WriteLine("{0}db bejegyzés van aminek 15-nél kevesebb lájkja van.", hanyOlyanBejegyzesAmi15LajknalKevesebb);
+            Console.WriteLine("{0}db bejegyzés van aminek 15-nél kevesebb lájkja van.\n", hanyOlyanBejegyzesAmi15LajknalKevesebb);
 
 
-            Console.ReadKey();
+            
             //3d
             for (int ID = lista.Count() - 1; ID > 0; ID--)
             {
@@ -118,6 +122,15 @@ namespace BejegyzesProjekt
             {
                 lista[i].Kiir();
             }
+
+            StreamWriter kiir = new StreamWriter("bejegyzesek_rendezett.txt");
+
+            for (int i = 0; i < lista.Count(); i++)
+            {
+                kiir.WriteLine(lista[i].GetSzerzo() + ";" + lista[i].GetTartalom());
+            }
+
+            kiir.Close();
 
 
 
