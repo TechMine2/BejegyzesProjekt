@@ -62,17 +62,25 @@ namespace BejegyzesProjekt
                 lista[i].Kiir();
             }
 
+            Console.ReadKey();
+
+            for (int i = 0; i < lista.Count; i++)
+            {
+                Console.WriteLine(lista[i].GetLikeok());
+            }
+
             //3a
             int legnepszerubbID = 0;
-            for (int i = 0; i < lista.Count(); i++)
+            for (int i = 0; i < lista.Count; i++)
             {
-                if (legnepszerubbID < lista[i].GetLikeok())
+                if (lista[legnepszerubbID].GetLikeok() < lista[i].GetLikeok())
                 {
                     legnepszerubbID = i;
                 }
             }
             Console.WriteLine("Legtöbb lájk: {0}", lista[legnepszerubbID].GetLikeok());
 
+            Console.ReadKey();
             //3b
             int seged = 0;
             bool vanEOlyanBejegyzesAmi35NelTobb = false;
@@ -108,7 +116,7 @@ namespace BejegyzesProjekt
                 int maxID = ID;
                 for (int ID_2 = 0; ID_2 <= ID; ID_2++)
                 {
-                    if (lista[ID_2].GetLikeok() > lista[maxID].GetLikeok())
+                    if (lista[ID_2].GetLikeok() < lista[maxID].GetLikeok())
                     {
                         maxID = ID_2;
                         Bejegyzes csere = lista[ID];

@@ -91,7 +91,7 @@ namespace BejegyzesProjekt
 
         public int GetLikeok()
         {
-            return this.likeok;
+            return likeok;
         }
 
         public DateTime GetLetrejott()
